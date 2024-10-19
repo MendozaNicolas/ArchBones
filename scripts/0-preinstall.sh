@@ -11,6 +11,7 @@
 #
 # @file Preinstall
 # @brief Contains the steps necessary to configure and pacstrap the install to selected drive. 
+loadkeys es
 echo -ne "
 -------------------------------------------------------------------------
  █████╗ ██████╗  ██████╗██╗  ██╗    ██████╗  ██████╗ ███╗   ██╗███████╗███████╗
@@ -141,9 +142,9 @@ mount -t vfat -L EFIBOOT /mnt/boot/
 
 if ! grep -qs '/mnt' /proc/mounts; then
     echo "Drive is not mounted can not continue"
-    echo "Rebooting in 3 Seconds ..." && sleep 1
-    echo "Rebooting in 2 Seconds ..." && sleep 1
-    echo "Rebooting in 1 Second ..." && sleep 1
+    echo "Reiniciando en 3 Segundos ..." && sleep 1
+    echo "Reiniciando en 2 Segundos ..." && sleep 1
+    echo "Reiniciando en 1 Segundos ..." && sleep 1
     reboot now
 fi
 echo -ne "
@@ -191,6 +192,6 @@ if [[  $TOTAL_MEM -lt 8000000 ]]; then
 fi
 echo -ne "
 -------------------------------------------------------------------------
-                    SYSTEM READY FOR 1-setup.sh
+                    SISTEMA LISTO PARA 1-setup.sh
 -------------------------------------------------------------------------
 "

@@ -18,9 +18,9 @@
     top = 22%
     height = 45%	
     item_font = "DroidLogo Regular 17"
-    item_color = "#fb3048"
+    item_color = "#F2F2F2"
     selected_item_font = "DroidLogo Regular 17"
-    selected_item_color = "#74d6cf"
+    selected_item_color = "#FFFFFF"
     icon_width = 16
     icon_height = 16
     item_height = 33
@@ -40,7 +40,7 @@
   height = 31
   show_text = false
   text = ""
-  fg_color = "#3daee9"
+  fg_color = "#5e5e5e"
   bg_color = "#31363b"
   border_color = "#31363b"
   highlight_style = "progress_highlight_*.png"
