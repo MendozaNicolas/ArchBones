@@ -197,7 +197,7 @@ echo -ne "
 ██║  ██║██║  ██║╚██████╗██║  ██║    ██████╔╝╚██████╔╝██║ ╚████║███████╗███████║
 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝
 ------------------------------------------------------------------------
-            Please select presetup settings for your system              
+    Por favor seleccioná la configuración presetup para tu sistema
 ------------------------------------------------------------------------
 "
 }
@@ -205,7 +205,7 @@ echo -ne "
 # btrfs and ext4. Others will be added in future.
 filesystem () {
 echo -ne "
-Please Select your file system for both boot and root
+Por favor seleccioná tu file system para ambos, boot y root
 "
 options=("btrfs" "ext4" "luks" "exit")
 select_option $? 1 "${options[@]}"
@@ -218,7 +218,7 @@ case $? in
     set_option FS luks
     ;;
 3) exit ;;
-*) echo "Wrong option please select again"; filesystem;;
+*) echo "Opción incorrecta, intentá de nuevo"; filesystem;;
 esac
 }
 # @description Detects and sets timezone. 
