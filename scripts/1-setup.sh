@@ -73,41 +73,41 @@ pacman -Sy --noconfirm --needed
 
 echo -ne "
 -------------------------------------------------------------------------
-                    Installing Base System  
+                    Instalando Base System  
 -------------------------------------------------------------------------
 "
 # sed $INSTALL_TYPE is using install type to check for MINIMAL installation, if it's true, stop
-# stop the script and move on, not installing any more packages below that line
+# stop the script and move on, not Instalando any more packages below that line
 if [[ ! $DESKTOP_ENV == server ]]; then
     sed -n '/'$INSTALL_TYPE'/q;p' $HOME/ArchBones/pkg-files/pacman-pkgs.txt | while read line; do
         if [[ ${line} == '--END OF MINIMAL INSTALL--' ]]; then
             # If selected installation type is FULL, skip the --END OF THE MINIMAL INSTALLATION-- line
             continue
         fi
-        echo "INSTALLING: ${line}"
+        echo "INSTALANDO: ${line}"
         sudo pacman -S --noconfirm --needed ${line}
     done
 fi
 echo -ne "
 -------------------------------------------------------------------------
-                    Installing Microcode
+                    Instalando Microcode
 -------------------------------------------------------------------------
 "
 # determine processor type and install microcode
 proc_type=$(lscpu)
 if grep -E "GenuineIntel" <<<${proc_type}; then
-    echo "Installing Intel microcode"
+    echo "Instalando Intel microcode"
     pacman -S --noconfirm --needed intel-ucode
     proc_ucode=intel-ucode.img
 elif grep -E "AuthenticAMD" <<<${proc_type}; then
-    echo "Installing AMD microcode"
+    echo "Instalando AMD microcode"
     pacman -S --noconfirm --needed amd-ucode
     proc_ucode=amd-ucode.img
 fi
 
 echo -ne "
 -------------------------------------------------------------------------
-                    Installing Graphics Drivers
+                    Instalando Graphics Drivers
 -------------------------------------------------------------------------
 "
 # Graphics Drivers find and install
@@ -126,19 +126,19 @@ fi
 if ! source $HOME/ArchBones/configs/setup.conf; then
     # Loop through user input until the user gives a valid username
     while true; do
-        read -p "Please enter username:" username
+        read -p "Ingresá tu username:" username
         # username regex per response here https://unix.stackexchange.com/questions/157426/what-is-the-regex-to-validate-linux-users
         # lowercase the username to test regex
         if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]]; then
             break
         fi
-        echo "Incorrect username."
+        echo "username incorrecto."
     done
     # convert name to lowercase before saving to setup.conf
     echo "username=${username,,}" >>${HOME}/ArchBones/configs/setup.conf
 
     #Set Password
-    read -p "Please enter password:" password
+    read -p "Ingresá tu contraseña:" password
     echo "password=${password,,}" >>${HOME}/ArchBones/configs/setup.conf
 
     # Loop through user input until the user gives a valid hostname, but allow the user to force save
@@ -159,7 +159,7 @@ if ! source $HOME/ArchBones/configs/setup.conf; then
 fi
 echo -ne "
 -------------------------------------------------------------------------
-                    Adding User
+                    Agregando Usuario
 -------------------------------------------------------------------------
 "
 if [ $(whoami) = "root" ]; then
@@ -189,6 +189,6 @@ if [[ ${FS} == "luks" ]]; then
 fi
 echo -ne "
 -------------------------------------------------------------------------
-                    SYSTEM READY FOR 2-user.sh
+                    SISTEMA LISTO PARA 2-user.sh
 -------------------------------------------------------------------------
 "
