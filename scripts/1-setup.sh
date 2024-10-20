@@ -3,6 +3,7 @@
 #
 # @file Setup
 # @brief Configures installed system, installs base packages, and creates user.
+clear
 echo -ne "
 -------------------------------------------------------------------------
  █████╗ ██████╗  ██████╗██╗  ██╗    ██████╗  ██████╗ ███╗   ██╗███████╗███████╗
